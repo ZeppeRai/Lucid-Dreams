@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lucid Dreams · Mesa Virtual</title>
+</head>
+<body>
+  <main id="app">
+    <section id="tela-inicio" hidden>
+      <h1>Lucid Dreams</h1>
+      <p class="sub">Mesa virtual</p>
+      <label>Seu nome <input id="nome" maxlength="30" autocomplete="off"></label>
+      <label>Sua cor <input id="cor" type="color" value="#a9abf7"></label>
+      <div class="linha">
+        <button id="btn-criar">Criar mesa (mestre)</button>
+      </div>
+      <div class="linha">
+        <input id="codigo" maxlength="5" placeholder="CÓDIGO" autocapitalize="characters" autocomplete="off">
+        <button id="btn-entrar">Entrar na mesa</button>
+      </div>
+      <p id="erro" class="erro" role="alert"></p>
+    </section>
+
+    <section id="tela-mesa" hidden>
+      <header>
+        <strong>Mesa <span id="mesa-codigo"></span></strong>
+        <span id="mesa-eu"></span>
+        <button id="btn-sair" class="fantasma">Sair</button>
+      </header>
+      <ul id="jogadores"></ul>
+      <form id="form-rolar" class="painel">
+        <input id="r-label" placeholder="Motivo (ex.: Atacar)" maxlength="60">
+        <label>Dados <input id="r-qtd" type="number" min="1" max="30" value="3"></label>
+        <label>PR gasto <input id="r-pr" type="number" min="0" max="12" value="0"></label>
+        <label>Dificuldade
+          <select id="r-dif"><option value="">—</option><option>1</option><option>2</option><option>3</option></select>
+        </label>
+        <label id="r-secreta-box" hidden><input id="r-secreta" type="checkbox"> Secreta</label>
+        <button type="submit">Rolar</button>
+      </form>
+      <div id="caixa-dados" aria-live="polite"></div>
+      <p id="resumo"></p>
+      <h2>Histórico</h2>
+      <ol id="historico"></ol>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
