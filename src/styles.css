@@ -1,0 +1,31 @@
+:root { --bg:#14122a; --painel:#1E1B38; --borda:#39345C; --texto:#E8E4F5; --azul:#A9ABF7; --rosa:#E989AE; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--texto); font:16px/1.4 system-ui, sans-serif; }
+#app { max-width: 640px; margin: 0 auto; padding: 16px; }
+h1 { margin: 24px 0 0; letter-spacing: .08em; } .sub { margin: 0 0 24px; opacity: .7; }
+label { display:flex; flex-direction:column; gap:4px; margin-bottom:12px; font-size:14px; }
+input, select, button { font: inherit; color: inherit; background: var(--painel); border: 1px solid var(--borda);
+  border-radius: 10px; padding: 10px 12px; }
+button { cursor: pointer; background: var(--azul); color: #14122a; border: 0; font-weight: 600; }
+button.fantasma { background: transparent; color: var(--texto); border: 1px solid var(--borda); }
+.linha { display:flex; gap:8px; margin-bottom:12px; } .linha input { flex:1; text-transform: uppercase; }
+.erro { color: var(--rosa); min-height: 1.4em; }
+header { display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:12px; }
+#jogadores { list-style:none; display:flex; flex-wrap:wrap; gap:8px; padding:0; }
+#jogadores li { padding:4px 10px; border-radius:999px; border:2px solid var(--c); font-size:14px; }
+.painel { display:grid; grid-template-columns: 1fr 1fr; gap:8px 12px; background:var(--painel);
+  border:1px solid var(--borda); border-radius:14px; padding:12px; }
+.painel > input, .painel > button { grid-column: 1 / -1; }
+#caixa-dados { display:flex; flex-wrap:wrap; gap:8px; min-height:64px; margin:16px 0 4px; }
+#resumo { min-height:1.4em; font-weight:600; }
+#historico { padding-left:20px; font-size:14px; } #historico li { margin-bottom:4px; }
+.dado { width:56px; height:56px; border-radius:12px; display:grid; place-items:center; font-size:34px;
+  background:var(--painel); color:var(--texto); border:2px solid var(--borda); }
+.dado.rolando { animation: tremer .12s infinite; }
+.dado.sucesso { border-color: var(--azul); box-shadow: 0 0 14px var(--azul); }
+.dado.tropeco { border-color: var(--rosa); box-shadow: 0 0 14px var(--rosa); }
+@keyframes tremer {
+  0% { transform: rotate(-12deg) translateY(-4px); } 50% { transform: rotate(10deg) translateY(2px); }
+  100% { transform: rotate(-12deg) translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) { .dado.rolando { animation: none; } }
